@@ -1,3 +1,6 @@
+Página: https://marianamador.github.io/BancoDigital/
+ Correos para validar: test@banco.com, leyvamarianeta@gmail.com
+
 # Banco Digital — Formulario de Registro
 
 Práctica de Formularios Avanzados con Angular. Formulario de registro para un banco digital con validaciones en tiempo real, validadores personalizados y validaciones asíncronas.
