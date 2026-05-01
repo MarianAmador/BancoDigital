@@ -1,0 +1,459 @@
+.registro-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #0a2e1a 0%, #0d3d2a 35%, #0c2d4a 70%, #0a1f3a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+}
+
+.registro-wrapper::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 15% 30%, rgba(16, 185, 129, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 70%, rgba(14, 165, 233, 0.07) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 520px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.08);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.card-header {
+  background: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #0c4a6e 100%);
+  padding: 2rem 2.5rem 1.75rem;
+  color: white;
+}
+
+.card-header .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.card-header .logo .logo-icon {
+  font-size: 1.4rem;
+  color: #0891b2;
+}
+
+.card-header .logo .logo-text {
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+.card-header .logo .logo-text strong {
+  font-weight: 700;
+}
+
+.card-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem;
+  letter-spacing: -0.02em;
+}
+
+.card-header p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.75;
+  line-height: 1.5;
+}
+
+.success-banner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #ecfdf5;
+  border-bottom: 1px solid #a7f3d0;
+  padding: 1rem 2.5rem;
+  animation: slideDown 0.4s ease;
+}
+
+.success-banner .success-icon {
+  width: 32px;
+  height: 32px;
+  background: #059669;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.success-banner div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.success-banner strong {
+  color: #065f46;
+  font-size: 0.95rem;
+}
+
+.success-banner span {
+  color: #047857;
+  font-size: 0.85rem;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+form {
+  padding: 2rem 2.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #111827;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrap .input-icon {
+  position: absolute;
+  left: 0.9rem;
+  font-size: 0.95rem;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+.input-wrap input {
+  width: 100%;
+  padding: 0.75rem 2.8rem 0.75rem 2.6rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #111827;
+  background: #f8fafc;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  outline: none;
+}
+
+.input-wrap input:focus {
+  border-color: #059669;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.12);
+}
+
+.input-wrap input[type="date"] {
+  cursor: pointer;
+}
+
+.input-wrap .status-icon {
+  position: absolute;
+  right: 0.9rem;
+  color: #059669;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.input-wrap .status-icon.loading {
+  color: #6b7280;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+.input-wrap .toggle-pass {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.2rem;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.input-wrap .toggle-pass:hover {
+  opacity: 1;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.field.has-error .input-wrap input {
+  border-color: #dc2626;
+  background: #fff5f5;
+}
+
+.field.has-error .input-wrap input:focus {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.field.is-valid .input-wrap input {
+  border-color: #059669;
+  background: #f0fdf4;
+}
+
+.errors {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  animation: fadeIn 0.2s ease;
+}
+
+.errors span {
+  font-size: 0.78rem;
+  color: #dc2626;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.errors span::before {
+  content: '⚠';
+  font-size: 0.7rem;
+}
+
+.hint {
+  font-size: 0.78rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.strength-meter {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.1rem;
+}
+
+.strength-meter .bars {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+}
+
+.strength-meter .bars .bar {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: #d1d5db;
+  transition: background 0.3s ease;
+}
+
+.strength-meter span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-width: 40px;
+  text-align: right;
+}
+
+.field-check .check-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  cursor: pointer;
+  text-transform: none;
+  font-weight: normal;
+  letter-spacing: 0;
+}
+
+.field-check .check-label input[type="checkbox"] {
+  display: none;
+}
+
+.field-check .check-label .checkmark {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border: 2px solid #d1d5db;
+  border-radius: 5px;
+  background: #f8fafc;
+  margin-top: 1px;
+  transition: all 0.2s;
+  position: relative;
+  cursor: pointer;
+}
+
+.field-check .check-label .checkmark::after {
+  content: '';
+  position: absolute;
+  display: none;
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 9px;
+  border: 2px solid white;
+  border-left: none;
+  border-top: none;
+  transform: rotate(45deg);
+}
+
+.field-check .check-label input:checked ~ .checkmark {
+  background: #059669;
+  border-color: #059669;
+}
+
+.field-check .check-label input:checked ~ .checkmark::after {
+  display: block;
+}
+
+.field-check .check-label .check-text {
+  font-size: 0.85rem;
+  color: #6b7280;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.link {
+  color: #059669;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.btn-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.9rem;
+  background: linear-gradient(135deg, #059669 0%, #047857 40%, #0c4a6e 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(5, 150, 105, 0.30);
+  margin-top: 0.5rem;
+}
+
+.btn-submit:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.40);
+}
+
+.btn-submit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-submit:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn-submit .btn-spinner {
+  display: inline-block;
+  animation: spin 0.7s linear infinite;
+}
+
+.login-link {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.login-link a {
+  color: #059669;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 560px) {
+  .card-header { padding: 1.5rem 1.5rem 1.25rem; }
+  form { padding: 1.5rem 1.5rem 2rem; }
+}
+
+.telefono-row {
+  margin-bottom: 0.5rem;
+}
+
+.telefono-row .input-wrap input {
+  padding-right: 2.8rem;
+}
+
+.btn-remove {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: #dc2626;
+  opacity: 0.7;
+  padding: 0.2rem;
+  transition: opacity 0.2s;
+}
+
+.btn-remove:hover {
+  opacity: 1;
+}
+
+.btn-add {
+  margin-top: 0.4rem;
+  background: none;
+  border: 1.5px dashed #059669;
+  color: #059669;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  font-size: 0.82rem;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-add:hover {
+  background: #f0fdf4;
+}
